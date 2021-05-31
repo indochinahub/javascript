@@ -1,25 +1,25 @@
 
-
-// long running function
-function waitThreeSeconds(){
-    var ms = 3000 + new Date().getTime();
-    while (new Date() < ms ){}
-    console.log("Finished function")
+var person = {
+    firsname : "Wittaya",
+    lastname : "Wijit",
+    getFullName : function(){
+        return this.firsname + "  " + this.lastname;
+    }
 }
 
-function clickHandler(){
-    console.log("click Event");
-}
+console.log( person.getFullName()); // "Wittaya  Wijit"
 
-document.addEventListener('click',clickHandler);
+var logName = function( language ){
+    console.log(" Logged : " + this.getFullName());
+    console.log(" language : " + language);
 
-waitThreeSeconds();
-console.log("Finished Execution");
+}; 
 
-waitThreeSeconds();
-console.log("Finished Execution");
+var logPersonName = logName.bind(person);
 
-
+console.log( logPersonName("en") ); 
+    //  "Logged : Wittaya  Wijit"
+    //  " language : en "
 
 
 

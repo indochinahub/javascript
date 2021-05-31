@@ -7,6 +7,8 @@
         <meta name="author" content="SitePoint">
     </head>
 <body>
-  <script src="jscripts.js"></script>
+    
+<script src="jscripts.js"></script>
+    
 </body>
 </html>
