@@ -9,18 +9,12 @@ var person = {
 
 console.log( person.getFullName()); // "Wittaya  Wijit"
 
-var logName = function( language ){
+(function( language ){
     console.log(" Logged : " + this.getFullName());
     console.log(" language : " + language);
 
-}; 
-
-var logPersonName = logName.bind(person);
-
-console.log( logPersonName("en") ); 
-    //  "Logged : Wittaya  Wijit"
-    //  " language : en "
-
+}.apply(person,["en"]))  ; //  "Logged : Wittaya  Wijit"
+                        //  " language : en "
 
 
 
