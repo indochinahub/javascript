@@ -1,48 +1,29 @@
 
-function mapForEach(arr, fn){
+var a = {};
+var b = function(){};
+var c = [];
 
-    var newArr = [];
-    for( var i = 0; i < arr.length ; i++ ){
-        newArr.push(fn(arr[i]))
-    }
-    return newArr;
-}
+// object in javascript have default prototypes
+// which are objects
+console.log(a.__proto__); // {...}
 
-/*******************************/
-var arr1 = [1,2,3];
-console.log(arr1);  // [1,2,3]
+// functions in javascript have default prototypes
+// which are functions
+console.log(b.__proto__); // f(){}
 
-var arr2 = mapForEach(arr1, function(item){
-    return item*2;
-});
-console.log(arr2);  // [2,4,6]
-
-/*******************************/
-// Pass another function
-var arr3 = mapForEach(arr1, function(item){
-    return item > 1;
-});
-console.log(arr3);  // [false, false, true]
-
-/*******************************/
-var checkPastLimit = function(limiter, item){
-    return item > limiter;
-};
-// we set value of limiter to 1 
-// and checkPastLimit  has only one parameter
-var arr4 = mapForEach( arr1, checkPastLimit.bind(this, 1));
-console.log(arr4);  // [false, true, true]
+// array in javascript have default prototypes
+// which are arrays
+console.log(c.__proto__); // [...]
 
 
-/*******************************/
-var checkPastLimitSimplified = function(limiter){
-    return function(limiter,item){
-        console.log(item, limiter);
-        return item > limiter
-    }.bind(this, limiter);
-};
-var arr5 = mapForEach( arr1, checkPastLimitSimplified(1));
-console.log(arr5);  // [false, true, true]
+//Objects don't have proto of proto
+console.log(a.__proto__.__proto__); // nil
 
+// Functions and arrays have proto of proto 
+// which are (built-in core) objects.
+console.log(b.__proto__.__proto__);  // {...}
+console.log(c.__proto__.__proto__);  // {...}
+
+var d = "Hello";
 
 
