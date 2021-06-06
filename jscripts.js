@@ -24,6 +24,5 @@ console.log(a.__proto__.__proto__); // nil
 console.log(b.__proto__.__proto__);  // {...}
 console.log(c.__proto__.__proto__);  // {...}
 
-var d = "Hello";
 
 
