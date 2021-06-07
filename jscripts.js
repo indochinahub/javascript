@@ -1,28 +1,35 @@
 
-var a = {};
-var b = function(){};
-var c = [];
+var person = {
+    firsname : "Wittaya",
+    lastname : "Wijit",
+    getFullName : function(){
+        return this.firsname + "  " + this.lastname;
+    }
+}
 
-// object in javascript have default prototypes
-// which are objects
-console.log(a.__proto__); // {...}
+var john = {
+    firstname : "John",
+    lastname : "Doe"
+};
 
-// functions in javascript have default prototypes
-// which are functions
-console.log(b.__proto__); // f(){}
+john.__proto__ = person;
 
-// array in javascript have default prototypes
-// which are arrays
-console.log(c.__proto__); // [...]
+// Show all properties of john
+// some of which are from person.
+for( var prop in john){
+    console.log(prop, john[prop]);
+}
+
+// Show only properties of john
+for( var prop in john){
+    if(john.hasOwnProperty(prop)){
+        console.log(prop, john[prop]);
+    }
+}
 
 
-//Objects don't have proto of proto
-console.log(a.__proto__.__proto__); // nil
 
-// Functions and arrays have proto of proto 
-// which are (built-in core) objects.
-console.log(b.__proto__.__proto__);  // {...}
-console.log(c.__proto__.__proto__);  // {...}
+
 
 
 
